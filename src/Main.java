@@ -3,6 +3,8 @@ public class Main {
     static int problemOne(String s){
         int answer = 0;
         //your code here
+        //Using the for and if statements I go through every index positions of the string and check if they equal any vowel.
+        //If the character in the index position matches a vowel it increments the answer by one.
         for (int i = 0; i < s.length(); i++) {
             if(s.charAt(i) == 'a' || s.charAt(i) == 'e' || s.charAt(i) == 'i' || s.charAt(i) == 'o' || s.charAt(i) == 'u'){
                 answer++;
@@ -15,6 +17,9 @@ public class Main {
     static int problemTwo(String s){
         int answer = 0;
         //your code here
+        // The for and if statements checks an index position and the one following it if they are equal to 'b' and 'o'.
+        // If this comes out as true the next if statement would check if the 2nd index position following the original index position is equal to 'b'.
+        // If this also comes out as true it will then add one to the 'bob' counter.
         for (int i = 0; i < s.length() - 2;i++) {
             if ((s.charAt(i) == 'b') && (s.charAt(i + 1) == 'o')) {
                 if (s.charAt(i + 2) == 'b') {
@@ -32,6 +37,14 @@ public class Main {
         int highestCount = 0;
         int indexOfHighest = 0;
         int indexBeginning;
+
+        // In this for loop the first if statement checks every index position one by one and compares it to the 1st index position that follows.
+        // If the following character in the index position is greater than the from before than it will add one to the count.
+        // The second if statement checks if the count is larger than the highestCount and if it is then the highest count will then be set to the count.
+        // Also it will let the program know which index position the longest substring that is in alphabetical order ends.
+        // The third if statement resets the count if the following character in the next index position is smaller than the one from before.
+        // The final if statement is making it so that if the highest count is 1 then the answer would equal to the letter int the first index position.
+
         for (int i = 0; i < s.length() - 1; i++) {
             if (s.charAt(i) <= s.charAt(i + 1)){
                 count++;
@@ -48,6 +61,7 @@ public class Main {
         if (indexBeginning == 1 && indexOfHighest == 2) {
             indexBeginning = 0; indexOfHighest = 1;
         }
+        //sets the answer
         s = s.substring(indexBeginning,indexOfHighest);
         return s;
     }
